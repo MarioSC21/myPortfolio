@@ -1,0 +1,70 @@
+---
+interface Props {
+  title: string;
+  descr: string;
+  img_sd: string;
+  img_hd: string;
+  img_2k: string;
+  idx: number;
+  uri: string;
+  source: string;
+  techs: { title: string; src: string }[];
+}
+const { title, descr, idx, uri, source, img_sd, img_hd, img_2k,techs } = Astro.props;
+---
+
+<div
+  id={'pj-' + (idx + 1)}
+  style='transform: translateY(200px); opacity: 0'
+  class={`bg-[#223148] rounded-md overflow-hidden h-fit mb-6 2k:mb-10 ${
+    idx % 2
+      ? 'lg:w-[calc(40%-12px)] 2k:w-[calc(40%-20px)] lg:ml-auto'
+      : '2k:w-[calc(60%-20px)] lg:w-[calc(60%-12px)] lg:float-left'
+  }`}
+>
+  <div class='group relative overflow-hidden cursor-pointer'>
+    <picture class='scale-0'>
+      <source media='(max-width: 999px)' srcset={img_sd} />
+      <source media='(max-width: 1999px)' srcset={img_hd} />
+      <source media='(min-width: 2000px)' srcset={img_2k} />
+      <img class='duration-300 group-hover:scale-105 ease-out' src={img_hd} alt={title} />
+    </picture>
+    <a
+      href={uri}
+      target='_blank'
+      class='font-rubik px-4 -bottom-full sm:px-8 hover:text-sky-300 text-white duration-300 backdrop-blur-md md:text-xl text-center absolute group-hover:bottom-0 py-4 w-full'
+    >
+      Ver Proyecto <img class='h-4 sm:h-5 inline ml-3' src='/assets/link.svg' alt='learn more' />
+    </a>
+  </div>
+  <div class='flex justify-between items-center mb-2 sm:mb-3 px-4 sm:px-8 mt-4 sm:mt-6'>
+    <h3 class='font-poppins text-white text-xl sm:text-2xl font-medium'>
+      {title}
+    </h3>
+    <a href={source} target='blank' class='hover:rotate-[360deg] duration-300 tooltip tooltip-success tooltip-up' data-tip="ver codigo">
+      <img class='h-5 sm:h-6' src='/assets/github.svg' alt='source code' />
+    </a>
+  </div>
+  <p class='px-4 sm:px-8 text-slate-200 font-rubik mb-4 sm:mb-6 sm:text-xl'>
+    {descr}
+  </p>
+  <div
+  class={`flex gap-4 flex-row justify-center md:flex-row px-4 sm:px-8 text-slate-200 font-serif mb-4 sm:mb-6 sm:text-xl`}
+>
+  <p class='text-base font-bold w-fit flex-row'>
+    {techs.map((tech, index, array) => (
+      <span>
+        {index !== array.length - 1 ? (
+          <span class='highlight'>{tech.title}</span>
+          <img src={tech.src} alt="" class="inline-block ml-2 mr-2" width="30"/>
+          <span> • </span>
+        ) : (
+          <span class='highlight'>{tech.title}</span>
+          <img src={tech.src} alt="" class="inline-block ml-2 mr-2" width="30"/>
+        )}
+      </span>
+    ))}
+  </p>
+</div>
+</div>
+<script></script>

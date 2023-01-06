@@ -1,0 +1,177 @@
+---
+import { navbarItems, navbarItemsObjects } from "../data/navbar"
+import DarkMode from "./DarkMode.astro"
+---
+
+<header class="fixed w-full z-10 backdrop-blur-md">
+  <div
+    class="text-gray-200 w-11/12 relative mx-auto py-4 2k:py-6 4k:py-10 flex justify-between items-center"
+  >
+    <!-- logo -->
+    <button
+      role="button"
+      aria-label="mario home page"
+      class="nav group w-27 2k:w-28 4k:w-44 flex items-center textodiv"
+    >
+      <img
+        src="/assets/codesignos.svg"
+        width="48"
+        height="48"
+        alt="Astro Blog"
+        class="rounded-full bg-base-200 md:w-9 md:h-9 w-9 h-8 mr-2"
+      />
+      <span
+        id="typed-logo"
+        class="font-medium text-2xl subrayado subrayado-Logo"></span>
+    </button>
+    <!-- close logo -->
+    <!-- open hamburger menu -->
+    <button class="peer group sm:hidden focus:w-0 focus:h-0">
+      <img src="/assets/menu.svg" alt="open navigation" />
+    </button>
+    <!-- close open hamburger menu -->
+    <nav
+      class="text-2xl sm:text-base 2k:text-xl 4k:text-3xl delay-75 fixed sm:bg-transparent duration-300 peer-focus:translate-x-0 sm:translate-x-0 sm:static sm:w-auto sm:h-auto sm:pt-0 -translate-x-full text-center pt-40 backdrop-blur-md top-0 -z-10 sm:z-auto left-0 bg-slate-700 h-screen w-full sm:flex font-poppins gap-4 2k:gap-14 4K:gap-18"
+    >
+      {
+        navbarItems.map((nav) => (
+          <button
+            role="button"
+            aria-label={"view" + nav}
+            class="nav block m-auto cursor-pointer px-12 py-6 tracking-wider focus:text-sky-300 sm:p-0 subrayado"
+          >
+            {nav}
+          </button>
+        ))
+      }
+      {
+        navbarItemsObjects.map(({ link, dataTooltip, imgSvg, color }) => (
+          <div
+            class:list={`nav block m-auto cursor-pointer px-12 py-6 tracking-wider focus:text-sky-300 sm:p-0 tooltip ${color} tooltip-bottom`}
+            data-tip={dataTooltip}
+          >
+            <button class="active:bg-base-content/30 active:text-current hover:bg-base-content/20 hover:text-current p-3 rounded-md">
+              <a
+                href={link}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Resume"
+              >
+                <div set:html={imgSvg} />
+              </a>
+            </button>
+          </div>
+        ))
+      }
+      <div>
+        <label
+          class="swap swap-rotate active:bg-base-content/30 active:text-current hover:bg-base-content/20 hover:text-current p-3 rounded-md"
+          data-toggle-theme="winter"
+          data-act-class="swap-active"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="swap-off icon icon-tabler icon-tabler-sun"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            stroke="currentColor"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <circle cx="12" cy="12" r="4"></circle>
+            <path
+              d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7"
+            ></path>
+          </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="swap-on icon icon-tabler icon-tabler-moon"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            stroke="currentColor"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path
+              d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"
+            ></path>
+          </svg>
+        </label>
+      </div>
+    </nav>
+    <!-- close hamburger menu -->
+    <button class="peer-focus-within:inline-block hidden sm:hidden">
+      <img src="/assets/cross.svg" alt="close navigation" />
+    </button>
+    <!-- close hamburger menu -->
+  </div>
+</header>
+<style>
+  .subrayado-Logo::before {
+    bottom: 22px !important;
+    width: 83px;
+  }
+  .subrayado::before {
+    content: "";
+    background: #7ba4b471;
+    position: absolute;
+    width: 82px;
+    bottom: 10px;
+    border-radius: 5px;
+    transform: scaleX(0);
+    animation: 1.4s forwards no-hover-v linear;
+    animation-fill-mode: forwards;
+    z-index: -1;
+  }
+  .subrayado:hover:before,
+  .subrayado:focus:before {
+    animation: 0.5s forwards hover-v linear;
+    animation-fill-mode: forwards;
+  }
+  @keyframes hover-v {
+    0% {
+      transform: scaleX(0);
+      height: 1px;
+    }
+    45% {
+      transform: scaleX(1.05);
+      height: 1px;
+    }
+    55% {
+      height: 1px;
+    }
+    100% {
+      transform: scaleX(1.05);
+      height: 2.2rem;
+    }
+  }
+  @keyframes no-hover-v {
+    0% {
+      transform: scaleX(1.05);
+      height: 2rem;
+    }
+    45% {
+      height: 51x;
+    }
+    55% {
+      transform: scaleX(1.05);
+      height: 1px;
+      opacity: 1;
+    }
+
+    100% {
+      transform: scaleX(0);
+      height: 1px;
+      opacity: 0.02;
+    }
+  }
+</style>
+<script src="../scripts/typewrite.ts"></script>

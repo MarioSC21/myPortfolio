@@ -1,0 +1,16 @@
+---
+interface Props {
+  src: string;
+  title: string;
+  tooltip: string;
+}
+const { src, title, tooltip } = Astro.props;
+---
+
+<img
+  src={src}
+  alt={title}
+  width="40"
+  data-tippy-content={`<b>${title}:</b> ${tooltip}`}
+  class='2k:h-12 4k:h-20 h-10'
+/>

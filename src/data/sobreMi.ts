@@ -1,0 +1,1 @@
+export const descriptionSobreMi = `Hola soy Mario Camna, desarrollador web enfocado al back-end y amplio desempeño en front-end, me gusta crear aplicaciones web que sean escalables y fáciles de mantener. Me gusta aprender nuevas tecnologías y aplicarlas en mis proyectos.`

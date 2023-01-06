@@ -1,0 +1,44 @@
+---
+import Proyectos from "./Proyectos.astro"
+import { projects } from "../data/proyectos"
+---
+
+<section
+  id="sw"
+  class="sitw w-11/12 max-w-[40rem] lg:max-w-[80rem] 2k:max-w-[100rem] 4k:max-w-[120rem] mx-auto pt-14"
+>
+  <h2
+    class="text-gray-200 text-center tracking-wide font-poppins text-2xl font-bold md:text-5xl 2k:text-4xl 4k:text-5xl mb-14 2k:mb-20 4k:mb-28"
+  >
+    <span class="text-slate-700">#</span>
+    Mis proyectos
+  </h2>
+  <div class="tablet:gap-6 lg:block">
+    {projects.map((props, i) => <Proyectos {...props} idx={i} />)}
+  </div>
+</section>
+<script>
+  import anime from "animejs"
+  import Scrollbar from "smooth-scrollbar"
+  import { getScreenY } from "../scripts/projets"
+  const targets = ["#pj-1", "#pj-2", "#pj-3", "#pj-4"]
+  // create animation timeline
+  const tl = anime.timeline()
+  targets.map((id) =>
+    tl.add({
+      targets: id,
+      translateY: 0,
+      opacity: 1,
+      duration: 1000,
+      easing: "easeInOutQuad",
+      autoplay: false,
+    })
+  )
+  // play animation once for smoother animation
+  tl.seek(tl.duration)
+  // animate timeline on scroll
+  const scroll = Scrollbar.get(
+    document.getElementById("scroll-wrapper") as HTMLElement
+  ) as Scrollbar
+  scroll.addListener(() => tl.seek((getScreenY("sw") - 0.15) * tl.duration))
+</script>

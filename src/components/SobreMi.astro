@@ -1,0 +1,46 @@
+---
+import TecnologiasIcon from "./TecnologiasIcon.astro"
+import { descriptionSobreMi } from "../data/sobreMi";
+import { tecnologias } from "../data/tecnologias"
+import { navbarItemsObjects } from "../data/navbar";
+---
+
+<section
+  class="clear-both sm:mt-[20rem] sitw pt-32 2k:pt-40 4k:pt-60 text-white font-poppins 4k:max-w-[95rem] 2k:max-w-[63rem] max-w-[40rem] md:max-w-[50rem] w-11/12 mx-auto text-center mb-32"
+>
+  <h2
+    class="text-gray-200 text-er tracking-wide font-poppins text-2xl font-bold md:text-5xl 2k:text-4xl 4k:text-5xl mb-14 2k:mb-20 4k:mb-28"
+  >
+    <span class="text-slate-700">#</span>
+    Sobre Mi
+  </h2>
+  <p
+    class="tracking-wide leading-7 text-lg mt-7 4k:mt-12 2k:text-xl 4k:text-3xl 2k:leading-9 4k:leading-[3.2rem] mx-auto"
+  >
+    {descriptionSobreMi}
+  </p>
+  <!-- Button para ver CV -->
+  <div class="flex flex-row items-center justify-center w-full pt-9 md:pt-12">
+    <a
+      href={navbarItemsObjects[0].link}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="flex flex-row gap-2 items-center justify-center transition-all duration-300 ease-in-out btn hover:scale-105 hover:shadow-md text-slate-300"
+    >
+      <div set:html={navbarItemsObjects[0].imgSvg}></div>
+      <span class="uppercase">Descargar CV</span>
+    </a>
+  </div>
+  <!--Close Button para ver CV -->
+  <h2
+    class="text-gray-200 mt-40 text-center tracking-wide font-poppins text-2xl font-bold md:text-5xl 2k:text-4xl 4k:text-5xl mb-14 2k:mb-20 4k:mb-28"
+  >
+    <span class="text-slate-700">#</span>
+    Habilidades
+  </h2>
+  <div
+    class="flex flex-wrap justify-center mt-6 gap-8 2k:gap-12 4k:mt-12 mx-auto 4k:gap-16"
+  >
+    {tecnologias.map((props) => <TecnologiasIcon {...props} />)}
+  </div>
+</section>

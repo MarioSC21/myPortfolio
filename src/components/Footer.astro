@@ -1,0 +1,41 @@
+---
+import { itemsFooter, email } from "../data/footer";
+---
+<footer
+  class='mb-4 relative sitw py-6 4k:pt-16 4k:pb-10 2k:pt-10 before:top-0 after:bottom-0 before:absolute before:w-full before:h-[2px] before:bg-[url("/assets/dash.svg")] after:absolute after:w-full after:h-[2px] after:bg-[url("/assets/dash.svg")]'
+>
+  <div class='mx-auto text-white w-11/12 sm:flex justify-between'>
+    <div>
+      <span class='font-poppins block text-center 2k:text-xl 4k:text-3xl'>Conectate commnigo</span>
+      <div class='flex gap-6 mt-4 4k:gap-12 2k:gap-8 2k:mt-8 sm:mt-6 justify-center 4k:mt-10'>
+        {
+          itemsFooter.map(({dataTooltip,link,imgSvg}) => (
+            <a
+              data-tippy-content={dataTooltip}
+              href={link}
+              aria-label={dataTooltip}
+              target='_blank'
+              class='group block'
+            >
+             <div set:html={imgSvg}></div>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+    <div>
+      <div
+        id='email'
+        class='cursor-pointer mx-auto w-fit font-poppins flex items-center mt-10 mb-6 sm:mt-0 justify-center'
+      >
+        <img src='/assets/email.svg' alt='email' />
+        <span class='ml-3 hover:text-sky-300'>{email.link}</span>
+      </div>
+    </div>
+  </div>
+  <div
+    class='font-poppins text-center text-gray-300 text-sm tracking-wide mt-4 2k:mt-2 2k:text-lg 4k:text-xl'
+  >
+    © 2023 - Sin derechos reservados
+  </div>
+</footer>

@@ -1,0 +1,59 @@
+---
+import { mainNameH1, Description } from "../data/mainName";
+---
+<section class='sitw relative flex flex-col justify-center items-center h-screen'>
+  <h3 id='hi' class='z-20 static overflow-hidden text-sm sm:text-lg 2k:text-2xl 4k:text-3xl'>
+    {Description[0]}
+  </h3>
+  <h1
+    id='zl'
+    class='sm:mt-2 2k:mt-6 z-20 text-[2.6rem] overflow-hidden sm:text-7xl md:text-8xl font-semibold opacity-1 font-poppins 2k:text-[8.5rem] 4k:text-[14rem]'
+  >
+    {mainNameH1.map((m) => <span class='zl-char inline-block whitespace-pre font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-base-content to-slate-400 dark:from-base-content dark:to-slate-200'>{m}</span>)}
+  </h1>
+  <h2
+    class='text-white text-[15px] sm:text-xl text-center gap-2 mt-5 sm:mt-8 2k:mt-10 4k:mt-14 flex font-rubik tracking-wider 2k:text-[1.75rem] 4k:text-[2.5rem]'
+  >
+    <span id='title'></span>
+  </h2>
+  <button
+    id='mouse'
+    role='button'
+    aria-label='Scroll to see projects'
+    class='group absolute bottom-[20vh] w-5 lg:w-6 2k:w-9 4k:w-10'
+  >
+    <svg viewBox='0 0 23 40' fill='none' xmlns='http://www.w3.org/2000/svg'>
+      <rect
+        class='stroke-white group-hover:stroke-sky-300'
+        x='1'
+        y='1'
+        width='20.5641'
+        height='38'
+        rx='10.2821'
+        stroke-width='2'></rect>
+      <rect id='ms' x='10' y='10' width='2' height='5' rx='1' fill='white'></rect>
+    </svg>
+  </button>
+</section>
+<script>
+  import anime from 'animejs';
+  anime({
+    targets: '#ms',
+    duration: 1000,
+    easing: 'linear',
+    keyframes: [{ translateY: 18 }, { translateY: 0 }],
+    loop: true,
+    delay: 300,
+  });
+  // @ts-ignore
+  import Typewriter from 'typewriter-effect/dist/core';
+  import { Description } from "../data/mainName";
+  document.addEventListener('DOMContentLoaded', () => {
+  const tw = new Typewriter(document.querySelector('#title') as HTMLElement, {
+    loop: false,
+    autoStart: true,
+  });
+  tw.typeString(`${Description[1]}`).start();
+});
+
+</script>

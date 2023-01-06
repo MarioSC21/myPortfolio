@@ -1,0 +1,50 @@
+---
+import "../../styles/global.css"
+import "@fontsource/poppins"
+import "@fontsource/poppins/400-italic.css"
+import "@fontsource/poppins/500.css"
+import "@fontsource/poppins/500-italic.css"
+import "@fontsource/poppins/600.css"
+import "@fontsource/poppins/600-italic.css"
+import "@fontsource/poppins/700.css"
+import "@fontsource/poppins/800.css"
+import Seo from "../Seo.astro"
+import Footer from "../Footer.astro"
+import Navbar from "../Navbar.astro"
+---
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <Seo />
+  </head>
+  <body>
+    <div class="snow"></div>
+    <Navbar />
+    <div id='scroll-wrapper' class='overflow-hidden w-screen h-screen'>
+      <main>
+        <slot />
+      </main>
+      <Footer />
+    </div>
+    <div id='splash' class='z-10 fixed origin-bottom w-full h-full bg-slate-800 top-0 right-0'>
+      <!-- ccargar animaciones principales -->
+      <script src="../../scripts/main.ts"></script>
+    </div>
+    <!-- <script src='../../scripts/fouc.ts'></script> -->
+    <script>
+      // Helper function
+      let domReady = (cb: any) => {
+        document.readyState === "interactive"
+          ? cb()
+          : window.addEventListener("DOMContentLoaded", cb)
+      }
+      domReady(() => {
+        // Display body when DOM is loaded
+        document.body.style.visibility = "visible"
+      })
+    </script>
+    <!-- <script src='../../scripts/snow.ts'></script> -->
+    <script src="../../scripts/snow.ts"></script>
+  </body>
+</html>
