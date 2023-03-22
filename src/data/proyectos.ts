@@ -1,32 +1,32 @@
 export const projects = [
   {
     title: 'Jira Clone',
-    img_sd: '/assets/jira-sd.webp',
-    img_hd: '/assets/jira-hd.webp',
-    img_2k: '/assets/jira-2k.webp',
+    img_sd: './assets/jira-sd.webp',
+    img_hd: './assets/jira-hd.webp',
+    img_2k: './assets/jira-2k.webp',
     descr: 'A minimalist replica of the Jira issue tracking software',
     uri: 'https://jira-replica.vercel.app/',
     source: 'https://github.com/lyn-eva/jira-clone',
     techs: [
       {
         title: 'React',
-        src: '/assets/nodejs.svg',
+        src: './assets/nodejs.svg',
       },
       {
         title: 'node',
-        src: '/assets/nodejs.svg',
+        src: './assets/nodejs.svg',
       },
       {
         title: 'nest',
-        src: '/assets/nodejs.svg',
+        src: './assets/nodejs.svg',
       },
       {
         title: 'java',
-        src: '/assets/nodejs.svg',
+        src: './assets/nodejs.svg',
       },
       {
         title: 'c++',
-        src: '/assets/nodejs.svg',
+        src: './assets/nodejs.svg',
       },
     ]
   },
