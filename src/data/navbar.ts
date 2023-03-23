@@ -12,7 +12,7 @@ interface navbarItemsObjects extends itemsNavegacion {
 export const navbarItems = ["Proyectos", "Sobre Mi", "Contacto"]
 export const navbarItemsObjects:navbarItemsObjects[] = [
   {
-    link: "https://drive.google.com/file/d/1M3K_x-BCax5n230JmCpbEIJGEkvwEYd_/view?usp=share_link",
+    link: "https://drive.google.com/file/d/1GifshS1WVk6qxbTn_Da-J_j52h3vdaBK/view?usp=sharing",
     dataTooltip: "CV",
     color:color.primary,
     imgSvg: `<svg
