@@ -144,8 +144,8 @@ export const projects = [
     img_hd: './assets/aplolsever2.png',
     img_2k: './assets/aplolsever2.png',
     descr: 'Consumiendo las apis de manga.in y animefenix para crear una api graphql',
-    uri: 'https://animefenix-api-scraping-production.up.railway.app/',
-    source: 'https://github.com/MarioSC21/AnimeFenix-Api-Scraping',
+    uri: 'https://manga-kissa-gql-production.up.railway.app/',
+    source: 'https://github.com/MarioSC21/Manga-Kissa-GQL',
     techs: [
       {
         title: 'TypeScript',
