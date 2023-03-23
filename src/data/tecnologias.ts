@@ -75,8 +75,23 @@ export const tecnologias = [
     tooltip: 'Sistema de gestión de base de datos relacional de Oracle',
   },
   {
+    src: './assets/postgres.png',
+    title: 'PostgreSQL',
+    tooltip: 'Sistema de gestión de base de datos relacional de PostgreSQL',
+  },
+  {
     src: './assets/graphql-icon.svg',
     title: 'Graphql',
     tooltip: 'Lenguaje de consulta para APIs',
+  },
+  {
+    src: './assets/html.png',
+    title: 'HTML',
+    tooltip: 'Html es un lenguaje de marcado para la elaboración de páginas web'
+  },
+  {
+    src: './assets/css.png',
+    title: 'CSS',
+    tooltip: 'CSS es un lenguaje de hojas de estilo que describe la presentación de documentos HTML',
   },
 ];

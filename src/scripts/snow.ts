@@ -1,5 +1,5 @@
 // snowflake characters
-const snow = ['❄', '❅', '❆'];
+const snow = ['❄', '< />', '❆'];
 // snowflake colors
 const colors = ['#aaa', '#bbb', '#ccc', '#ddd', '#eee'];
 // number of snowflakes

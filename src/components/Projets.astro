@@ -21,7 +21,7 @@ import { projects } from "../data/proyectos"
   import anime from "animejs"
   import Scrollbar from "smooth-scrollbar"
   import { getScreenY } from "../scripts/projets"
-  const targets = ["#pj-1", "#pj-2", "#pj-3", "#pj-4"]
+  const targets = ["#pj-1", "#pj-2", "#pj-3", "#pj-4","#pj-5","#pj-6","#pj-7","#pj-8",,"#pj-9"]
   // create animation timeline
   const tl = anime.timeline()
   targets.map((id) =>
@@ -40,5 +40,5 @@ import { projects } from "../data/proyectos"
   const scroll = Scrollbar.get(
     document.getElementById("scroll-wrapper") as HTMLElement
   ) as Scrollbar
-  scroll.addListener(() => tl.seek((getScreenY("sw") - 0.15) * tl.duration))
+  scroll.addListener(() => tl.seek((getScreenY("sw") - 0.12) * tl.duration))
 </script>
